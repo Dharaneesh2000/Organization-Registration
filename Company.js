@@ -1,8 +1,9 @@
 import React from 'react';
-import { Form, Input, Checkbox, Upload, message, Button} from 'antd';
+import { Form, Input, Checkbox, Upload, message, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import {observer} from 'mobx-react';
 import FormItem from 'antd/lib/form/FormItem';
+ 
 
 const props = {
     name: 'file',
@@ -34,12 +35,10 @@ class Company extends React.Component{
     this.handleJobChange= this.handleJobChange.bind(this)
     this.handleExperienceChange= this.handleExperienceChange.bind(this)
     this.handleTermsChange= this.handleTermsChange.bind(this)
-
-
     }
     handleCompanyChange(events){
       this.setState({
-            company_name:events.target.value
+        company_name:events.target.value
       })
       console.log(events.target.value)
       this.props.store.company_name = events.target.value
@@ -83,20 +82,20 @@ class Company extends React.Component{
             <Upload className="label" {...props}>
             <Button icon={<UploadOutlined />}>Upload your company logo</Button>
             </Upload><br/>
-            <Form.Item className="label" name="company_name" onChange = {this.handleCompanyChange} value = {this.state.company_name} label="Company Name">
+            <Form.Item className="label" name="company_name" onChange = {this.props.handleCompanyChange} value = {this.state.company_name} label="Company Name">
             <Input className="input"/>
             </Form.Item>
-            <Form.Item className="label" name="email" onChange = {this.handleEmailChange} value = {this.state.email} label="Email">
+            <Form.Item className="label" name="email" onChange = {this.props.handleEmailChange} value = {this.state.email} label="Email">
             <Input className="input"/>
             </Form.Item>
-            <Form.Item className="label" name="job_title" onChange = {this.handleJobChange} value = {this.state.job_title} label="Job Title">
+            <Form.Item className="label" name="job_title" onChange = {this.props.handleJobChange} value = {this.state.job_title} label="Job Title">
             <Input className="input"/>
             </Form.Item>
-            <Form.Item className="label" name="experience" onChange = {this.handleExperienceChange} value = {this.state.experience} label="Years of Experience">
+            <Form.Item className="label" name="experience" onChange = {this.props.handleExperienceChange} value = {this.state.experience} label="Years of Experience">
             <Input className="input"/>
             </Form.Item>
             <Form.Item>
-            <Checkbox className="labeltwo" name="terms" onChange={this.handleTermsChange}>I accept the terms and conditions</Checkbox>
+            <Checkbox className="labeltwo" name="terms" onChange={this.props.handleTermsChange}>I accept the terms and conditions</Checkbox>
             </Form.Item>
             </Form>
             </div>
