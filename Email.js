@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import OtpInput from 'react-otp-input';
 import {observer} from 'mobx-react';
 
@@ -15,7 +15,7 @@ class Email extends React.Component{
               otp:value
         })
         console.log(value)
-        this.props.store.otp = value
+       
     }
     render(){
         return(
@@ -26,7 +26,9 @@ class Email extends React.Component{
                 </header>
                 <div className="otpbox"> 
                 <p><b>Enter your OTP</b> </p> 
-             <OtpInput value={this.state.otp} onChange={this.handleChange} numInputs={5} separator={<span>--</span>}/>  
+             <OtpInput     
+             onChange={this.handleChange} numInputs={6} separator={<span>-</span>} value={this.state.otp}/>
+
              </div>
             </div>
         )
